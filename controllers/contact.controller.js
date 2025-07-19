@@ -4,14 +4,16 @@ import { Contact } from "../models/contacts.model.js";
 //@desc Get all contacts
 //@route GET /api/contacts
 //@access public for now until authorisation
+//private
 const getContact = async (req, res) => {
-  const contacts = await Contact.find();
+  const contacts = await Contact.find({ user_id: req.user.id });
   return res.status(200).json(contacts);
 };
 
 //@desc create contacts
 //@route POST /api/contacts
 //@access public for now
+//private
 const createContact = async (req, res) => {
   try {
     const { name, email, phone } = req.body;
@@ -30,6 +32,7 @@ const createContact = async (req, res) => {
 //@desc Get the contact with id
 //@route PUT /api/contacts/:id
 //@access public for now
+//private
 const getContactWithId = async (req, res) => {
   const contact = await Contact.findById(req.params.id);
   if (!contact) {
@@ -43,6 +46,7 @@ const getContactWithId = async (req, res) => {
 //@desc Update contacts
 //@route POST /api/contacts/:id
 //@access public for now
+//private
 const updatecontact = async (req, res) => {
   const contact = await Contact.findById(req.params.id);
   if (!contact) {
@@ -64,6 +68,7 @@ const updatecontact = async (req, res) => {
 //@desc delete contacts
 //@route DELETE /api/contacts/:id
 //@access public for now
+//private
 const deleteContact = async (req, res) => {
   const contact = await Contact.findById(req.params.id);
   if (!contact) {

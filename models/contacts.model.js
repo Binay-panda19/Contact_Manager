@@ -14,6 +14,11 @@ const contactSchema = new Schema(
       type: String,
       required: [true, "Please add the phone number for the contact"],
     },
+    user_id: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
   {
     timestamps: true,

@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import contactRouter from "./routes/contact.routes.js";
-import userRouter from "./routes/users.routes.js";
+import userRouter from "./routes/user.routes.js";
 import { errorHandler } from "./middlewares/errorHandler.middleware.js";
 import connectDB from "./db/index.js";
 
