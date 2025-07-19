@@ -88,7 +88,7 @@ const deleteContact = async (req, res) => {
       "User don't have permission to update other user contacts "
     );
   }
-  await Contact.remove();
+  await Contact.deleteOne({ _id: req.params.id });
 
   res
     .status(200)
